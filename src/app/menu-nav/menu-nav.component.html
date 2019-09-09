@@ -1,0 +1,208 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+     <h1>YOURDRS</h1>
+     <!-- <img src="src\assets\download (1).png" height=70 width=200px> -->
+     <mat-menu #appMenu="matMenu">
+        <button mat-menu-item (click)='onClickAD()'>Adjuster Dashboard</button>
+        <button mat-menu-item (click)='onClickOD()'>Office Dashboard</button>
+      </mat-menu>
+
+      <button mat-icon-button [matMenuTriggerFor]="appMenu">
+ <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <!-- hello -->
+ <button
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon" md-menu-align-target >menu</mat-icon>
+
+    </button>
+      </mat-toolbar-row>
+  </mat-toolbar>
+
+
+  <mat-tab-group>
+    <mat-tab label="Appointments Dashboard" *ngIf="adjusterDashboard">fhfh </mat-tab>
+      <mat-tab label="Appointments Scheduler" *ngIf="officeDashboard">
+        <!-- <div class="example-large-box mat-elevation-z4"> -->
+            <form>
+                <mat-accordion>
+                    <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                    <mat-panel-title>
+                    <h3>Search Filter</h3>
+                    </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+              <div class="form-group row">
+                  <div class="chosen-container chosen-container-single chosen-container-active " style="width: 10%" title="" id="DepartmentId_chosen">
+                    <a class="chosen-single">
+                      <span> </span>
+                    </a>
+                      <select>
+
+                      <option>
+                      <!-- <div class="chosen-drop"> -->
+                      <div class="chosen-search">
+                        <!-- <input type="text" autocomplete="off"> -->
+                        <!-- <ejs-multiselect id='localData' #local [dataSource]='arr' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect> -->
+                      </div>
+                      <!-- <ul class="chosen-results">
+                        <li class="active-result result-selected highlighted" data-option-array-index="0" style="">Any</li>
+                      </ul> -->
+
+                    <!-- </div> -->
+                  </option>
+                  </select>
+                  </div>
+                <!-- <a class="chosen-single"><span>Any</span><div><b></b></div></a> -->
+                  <!-- <div class="form-group col-md-3"> -->
+                      <!-- <label>Practice</label><br> -->
+                <!-- <input type="text" [formControl]="control" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
+                            {{street}}
+                          </mat-option>
+                        </mat-autocomplete> -->
+                        <!-- <ejs-autocomplete id='atcelement' [dataSource]='arr3' [fields]='fields' [placeholder]='text' [autofill]='autofill'></ejs-autocomplete> -->
+                         <!-- <ejs-multiselect id='localData' #local [dataSource]='arr' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect> -->
+                <!-- </div> -->
+
+                <div class="form-group col-md-3">
+                  <label >Location</label><br>
+                  <!-- <input type="text" [formControl]="control" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let street of  filteredStreets | async" [value]="street">
+                            {{street}}
+                          </mat-option>
+                        </mat-autocomplete> -->
+                        <!-- <select>   <option  [value]="item" *ngFor="let item of arr1">{{item.Name}}</option></select> -->
+                        <ejs-autocomplete id='atcelement' [dataSource]='arr1' [fields]='fields1' [placeholder]='text1' [autofill]='autofill1'></ejs-autocomplete>
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label >Provider/Physician Assistant</label>
+                     <!-- <input type="text" [formControl]="control" [matAutocomplete]="auto">
+                     <mat-autocomplete #auto="matAutocomplete">
+                       <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
+                         {{street}}
+                       </mat-option>
+                     </mat-autocomplete> -->
+                     <ejs-autocomplete id='atcelement' [dataSource]='arr2' [fields]='fields2' [placeholder]='text2' [autofill]='autofill2'></ejs-autocomplete>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                      <label >Specialty</label><br>
+                      <!-- <input type="text" [formControl]="control"> -->
+                      <!-- <input type="text" [formControl]="control" [matAutocomplete]="auto">
+                      <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
+                          {{street}}
+                        </mat-option>
+                      </mat-autocomplete> -->
+                      <ejs-autocomplete id='atcelement' [dataSource]='arr' [fields]='fields3' [placeholder]='text2' [autofill]='autofill3'></ejs-autocomplete>
+                   <!-- <select>   <option  [value]="item" *ngFor="let item of arr">{{item.Name}}</option></select> -->
+                      </div>
+              </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-2">
+                    <label >Search From Date</label>
+                      <input type="date" name="bday">
+                  </div>
+
+                  <div class="form-group col-md-1">
+                    <input  type="checkbox"  >&nbsp; Clinical
+
+                  </div>
+                  <div class="form-group col-md-1">
+                    <input  type="checkbox" > &nbsp;   PT
+
+                  </div>
+                  <div class="form-group col-md-1">
+                    <input  type="checkbox"  > &nbsp;  Dx
+
+                  </div>
+                  <div class="form-group col-md-1">
+                      <input  type="checkbox"  >&nbsp; Concierge
+
+                    </div>
+                  <div class="form-group col-md-2">
+                    <label >Scheduler Start Time</label>
+                    <select  class="form-control">
+                        <option value="10am">10am</option>
+                        <option value="11am">11am</option>
+                        <option value="12am">12am</option>
+                        <option value="1pm">1pm</option>
+
+                    </select>
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label >Scheduler End Time</label>
+                    <select  class="form-control">
+                        <option value="7am">7am</option>
+                        <option value="8am">8am</option>
+                        <option value="9am">9am</option>
+                        <option value="10pm">10am</option>
+
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-2">
+
+                  <button class="btn btn-primary" (click)=" openEdit(contents)" style="margin-top: 28px">Search</button>
+                </div>
+                </div>
+              </mat-expansion-panel>
+              </mat-accordion>
+              </form>
+
+        <!-- </div> -->
+    </mat-tab>
+
+
+
+
+    <mat-tab label="My Cases" *ngIf="myCases">  </mat-tab>
+  </mat-tab-group>
+  <!-- <<<------>
+  <ng-template #contents>
+  <div class="control-section">
+    <!-- <img src= '/assets/Clementine Rose 2_02 (3).jpg' alt="will-smith">
+    <img src='/assets/James_Robson.png' alt="alice">
+    <img src='/assets/586b80e2b6fc1117b60b27a0.png' alt="robson"> -->
+
+   <ejs-schedule #scheduleObj cssClass='schedule-group-custom-work-days' width='100%' height='650px' [currentView]="currentView"
+       [group]="group" [selectedDate]="selectedDate"
+
+       (actionBegin)="onActionBegin($event)"
+         [allowResizing]="allowResizing"
+       [allowDragAndDrop]="allowDragDrop">
+       <ng-template #resourceHeaderTemplate let-data>
+           <div class='template-wrap'>
+               <div class="resource-image {{getDoctorImage(data)}}"></div>
+               <div class="resource-details">
+                   <div class="resource-name">{{getDoctorName(data)}}</div>
+                   <div class="resource-designation">{{getDoctorLevel(data)}}</div>
+
+               </div>
+
+
+           </div>
+       </ng-template>
+       <e-views>
+           <e-view option="WorkWeek"></e-view>
+           <e-view option="Month"></e-view>
+       </e-views>
+       <e-resources>
+           <e-resource Provider="xyz" field='DoctorId' title='Doctor Name' name='Doctors' [dataSource]='resourceDataSource' textField='text' idField='id'
+               colorField='color' workDaysField='workDays' startHourField='startHour' endHourField='endHour'>
+           </e-resource>
+       </e-resources>
+   </ejs-schedule>
+  </div>
+</ng-template>
